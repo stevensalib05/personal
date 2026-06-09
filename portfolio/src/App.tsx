@@ -1,6 +1,6 @@
 import './App.css'
 import { Navbar } from './components/navbar/Navbar'
-import gradPhoto from './assets/1000004320.JPEG'
+import gradPhoto from './assets/suit.jpeg'
 
 const experience = [
   {
@@ -8,7 +8,7 @@ const experience = [
     org: 'Pocketride Inc',
     period: 'March 2026 — Current',
     summary:
-      'Accelerated website migration from WordPress to Next.js 15 (App Router) with TypeScript, enabling SSG/ISR rendering for city SEO pages & reducing estimated page load time by40% through static generation. ' +
+      'Accelerated website migration from WordPress to Next.js 15 (App Router) with TypeScript, enabling SSG/ISR rendering for city SEO pages & reducing estimated page load time by 40% through static generation. ' +
       'Architected a scalable front-end component library using Tailwind CSS and shadcn/ui, that reduced new landing page build time by an estimated 60% across 4 HubSpot pipeline integrations. ',
     stack: ['Next.JS', 'Tailwind CSS', 'TypeScript', 'Supabase'],
   },
@@ -104,14 +104,15 @@ function App() {
           </div>
           <div className="section-copy">
             <p>
-              I initially started coding as a friend got me into it. I used Codecademy to get into JS
-              so that I could create a Discord Bot that was used to web-scrape, and use video game APIs
-              to gather all information I needed with a simple command. This way I could avoid tedious searching!
+              A short story to who I am and how I got here. I initially started learning through Codecademy as a hobby and got really into it
+              once I started playing a game called Hypixel Skyblock. I noticed that when it came to searching up player statistics, it got annoying at times,
+              so I decided to do something about it by making a Discord Bot that would gather all important player stats in one area!
+              Using web scraping and the use of multiple APIs including Hypixel's API, I thoroughly enjoyed the process of all this and decided I wanted to
+              do this full time in my career. So, a few years later, here I am an Aspiring Software Engineer!
             </p>
             <p>
-              What I didn't expect was that I enjoyed it so much that I wanted to create a career out of it.
-              So here I am a few years later attending Western University for Software Engineering, working on some
-              personal projects, participating in some competitions/hackathons, mainly knowledgeable on full-stack development!
+              My main interests as of now is mainly full-stack development since that's what I'm mostly familiar with.
+              However, I am more than happy and willing to expand my horizons and learn new things, since the modern world requires us to adapt and keep up!
             </p>
           </div>
         </section>
