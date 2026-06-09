@@ -23,7 +23,7 @@
 
 .navbarcontent {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     gap: 1rem 1.5rem;
     list-style: none;
