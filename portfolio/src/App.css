@@ -148,8 +148,9 @@
   display: grid;
   grid-template-columns: 220px 1fr;
   gap: 2rem;
-  padding: 3rem 0;
+  padding: 4rem 0;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
+  scroll-margin-top: 4.5rem;
 }
 
 .section-heading h2 {
@@ -168,7 +169,7 @@
 .project-grid,
 .writing-list {
   display: grid;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .timeline-item,
@@ -222,7 +223,8 @@
 }
 
 .project-grid {
-  grid-template-rows: repeat(auto-fit);
+  grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
+  align-items: start;
 }
 
 .project-card {
@@ -234,9 +236,9 @@
 
 .project-card:hover,
 .writing-item:hover,
-.timeline-item:hover {
-  transform: translateY(-3px);
-  border-color: rgba(99, 102, 241, 0.45);
+.timeline-item:hover,
+.github-card:hover {
+  border-color: rgba(125, 211, 252, 0.45);
 }
 
 .project-card p {
@@ -262,6 +264,26 @@
   font-family: var(--mono);
   color: var(--accent);
   white-space: nowrap;
+}
+
+.github-card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: var(--shadow);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+  max-width: 760px;
+  transition: border-color 0.2s ease;
+}
+
+.github-card p {
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.8;
 }
 
 .contact-block {

@@ -1,6 +1,31 @@
 import './App.css'
+import { motion } from 'framer-motion'
+import type { ReactNode } from 'react'
 import { Navbar } from './components/navbar/Navbar'
 import gradPhoto from './assets/suit.jpeg'
+
+function RevealSection({
+  id,
+  className = 'section-block',
+  children,
+}: {
+  id: string
+  className?: string
+  children: ReactNode
+}) {
+  return (
+    <motion.section
+      id={id}
+      className={className}
+      initial={{ opacity: 0, y: 28 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-80px' }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+    >
+      {children}
+    </motion.section>
+  )
+}
 
 const experience = [
   {
@@ -36,7 +61,7 @@ const projects = [
     href: 'https://github.com/stevensalib05/wec-stuff-main',
   },
   {
-    name: 'Discord Bot Implementing many APIs',
+    name: 'Discord Bot Implementing several APIs',
     description:
       'Developed a multi-purpose Discord bot using Node.js and Discord.js that serves 100+ users daily, integrating external APIs to deliver real-time commands, automated responses, and player statistics. ' +
       'Implemented data pipelines using Cheerio (web scraping), file system & game APIs to process user statistics. ' + 
@@ -97,7 +122,7 @@ function App() {
 
       <main id="content" className="page">
 
-        <section className="section-block" id="about">
+        <RevealSection id="about">
           <div className="section-heading">
             <span className="section-kicker">About Me</span>
             <h2>In it for the long run!</h2>
@@ -106,7 +131,7 @@ function App() {
             <p>
               A short story to who I am and how I got here. I initially started learning through Codecademy as a hobby and got really into it
               once I started playing a game called Hypixel Skyblock. I noticed that when it came to searching up player statistics, it got annoying at times,
-              so I decided to do something about it by making a Discord Bot that would gather all important player stats in one area!
+              so I decided to do something about it. I made a Discord Bot that would gather all important player stats in one area.
               Using web scraping and the use of multiple APIs including Hypixel's API, I thoroughly enjoyed the process of all this and decided I wanted to
               do this full time in my career. So, a few years later, here I am an Aspiring Software Engineer!
             </p>
@@ -115,16 +140,24 @@ function App() {
               However, I am more than happy and willing to expand my horizons and learn new things, since the modern world requires us to adapt and keep up!
             </p>
           </div>
-        </section>
+        </RevealSection>
 
-        <section className="section-block" id="experience">
+        <RevealSection id="experience">
           <div className="section-heading">
             <span className="section-kicker">Experience</span>
             <h2>Experience In Industry So Far.</h2>
           </div>
           <div className="timeline">
-            {experience.map((item) => (
-              <article key={item.title} className="timeline-item">
+            {experience.map((item, index) => (
+              <motion.article
+                key={item.title}
+                className="timeline-item"
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
+                whileHover={{ y: -4 }}
+              >
                 <div className="timeline-meta">
                   <div>
                     <h3>{item.title}</h3>
@@ -138,19 +171,30 @@ function App() {
                     <li key={tech}>{tech}</li>
                   ))}
                 </ul>
-              </article>
+              </motion.article>
             ))}
           </div>
-        </section>
+        </RevealSection>
 
-        <section className="section-block" id="projects">
+        <RevealSection id="projects">
           <div className="section-heading">
             <span className="section-kicker">Projects</span>
             <h2>My Trial & Error Experiments Come To Life:</h2>
           </div>
           <div className="project-grid">
-            {projects.map((project) => (
-              <a key={project.name} className="project-card" href={project.href}>
+            {projects.map((project, index) => (
+              <motion.a
+                key={project.name}
+                className="project-card"
+                href={project.href}
+                target="_blank"
+                rel="noreferrer"
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.5, delay: (index % 2) * 0.1, ease: 'easeOut' }}
+                whileHover={{ y: -4 }}
+              >
                 <p className="project-label">Featured Project</p>
                 <h3>{project.name}</h3>
                 <p>{project.description}</p>
@@ -159,12 +203,33 @@ function App() {
                     <li key={tech}>{tech}</li>
                   ))}
                 </ul>
-              </a>
+              </motion.a>
             ))}
           </div>
-        </section>
+        </RevealSection>
 
-        <section className="section-block contact-block" id="contact">
+        <RevealSection id="github" className="section-block github-block">
+          <div className="section-heading">
+            <span className="section-kicker">GitHub</span>
+            <h2>Want to see more?</h2>
+          </div>
+          <motion.div className="github-card" whileHover={{ y: -4 }}>
+            <p>
+              Everything I build — hackathon prototypes, experiments, and works in progress —
+              lives on my GitHub. Feel free to poke around!
+            </p>
+            <a
+              className="primary-action"
+              href="https://github.com/stevensalib05"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Visit my GitHub →
+            </a>
+          </motion.div>
+        </RevealSection>
+
+        <RevealSection id="contact" className="section-block contact-block">
           <div className="section-heading">
             <span className="section-kicker">Contact</span>
             <h2>Reach out if you want to build something together.</h2>
@@ -177,7 +242,7 @@ function App() {
               Phone #: (226)-246-9117
             </a>
           </div>
-        </section>
+        </RevealSection>
       </main>
     </div>
   )
