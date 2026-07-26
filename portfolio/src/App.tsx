@@ -245,7 +245,6 @@ function App() {
           </div>
         </RevealSection>
       </main>
-      <Analytics />
     </div>
   )
 }
