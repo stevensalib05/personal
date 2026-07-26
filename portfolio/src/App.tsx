@@ -3,7 +3,6 @@ import { motion } from 'framer-motion'
 import type { ReactNode } from 'react'
 import { Navbar } from './components/navbar/Navbar'
 import gradPhoto from './assets/suit.jpeg'
-import { Analytics } from "@vercel/analytics/react"
 
 function RevealSection({
   id,
